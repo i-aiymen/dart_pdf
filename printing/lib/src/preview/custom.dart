@@ -53,6 +53,7 @@ class PdfPreviewCustom extends StatefulWidget {
     this.pagesBuilder,
     this.enableScrollToPage = false,
     this.onZoomChanged,
+    required this.backgroundColor,
   }) : super(key: key);
 
   /// Pdf paper page format
@@ -110,6 +111,9 @@ class PdfPreviewCustom extends StatefulWidget {
 
   /// The zoom mode has changed
   final ValueChanged<bool>? onZoomChanged;
+
+  /// The background color of the widget
+  final Color backgroundColor;
 
   @override
   PdfPreviewCustomState createState() => PdfPreviewCustomState();
@@ -349,11 +353,12 @@ class PdfPreviewCustomState extends State<PdfPreviewCustom>
     return Container(
       decoration: widget.scrollViewDecoration ??
           BoxDecoration(
-            gradient: LinearGradient(
-              colors: <Color>[Colors.grey.shade400, Colors.grey.shade200],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
+            // gradient: LinearGradient(
+            //   colors: <Color>[Colors.grey.shade400, Colors.grey.shade200],
+            //   begin: Alignment.topCenter,
+            //   end: Alignment.bottomCenter,
+            // ),
+            color: widget.backgroundColor,
           ),
       width: double.infinity,
       alignment: Alignment.center,

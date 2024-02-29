@@ -65,6 +65,7 @@ class PdfPreview extends StatefulWidget {
     this.actionBarTheme = const PdfActionBarTheme(),
     this.enableScrollToPage = false,
     this.onZoomChanged,
+    required this.backgroundColor
   })  : _pagesBuilder = null,
         super(key: key);
 
@@ -126,6 +127,7 @@ class PdfPreview extends StatefulWidget {
     required CustomPdfPagesBuilder pagesBuilder,
     this.enableScrollToPage = false,
     this.onZoomChanged,
+    required this.backgroundColor
   })  : _pagesBuilder = pagesBuilder,
         super(key: key);
 
@@ -243,6 +245,9 @@ class PdfPreview extends StatefulWidget {
   /// The zoom mode has changed
   final ValueChanged<bool>? onZoomChanged;
 
+
+  /// The background color of the widget
+  final Color backgroundColor;
   @override
   PdfPreviewState createState() => PdfPreviewState();
 }
@@ -398,6 +403,7 @@ class PdfPreviewState extends State<PdfPreview> {
                 dpi: widget.dpi,
                 enableScrollToPage: widget.enableScrollToPage,
                 onZoomChanged: widget.onZoomChanged,
+                backgroundColor: widget.backgroundColor,
               );
             }),
           ),

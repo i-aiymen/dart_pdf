@@ -77,8 +77,9 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
       body: PdfPreview(
         maxPageWidth: 700,
         build: (format) => generateResume(
-          PdfPageFormat.a3,
+          format,
         ),
+        backgroundColor: Colors.grey[300]!,
         actions: actions,
       ),
     );
