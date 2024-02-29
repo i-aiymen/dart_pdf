@@ -28,13 +28,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scrollbarTheme = ScrollbarThemeData(
+      thumbColor: MaterialStateProperty.all(Colors.grey),
       thumbVisibility: MaterialStateProperty.all(true),
     );
 
     return MaterialApp(
       theme: ThemeData.light().copyWith(scrollbarTheme: scrollbarTheme),
       darkTheme: ThemeData.dark().copyWith(scrollbarTheme: scrollbarTheme),
-      title: 'Flutter PDF Demo',
       home: const MyApp(),
     );
   }

@@ -16,7 +16,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pw;
 
 import '../callback.dart';
 import '../printing.dart';
@@ -372,25 +371,6 @@ class PdfPreviewState extends State<PdfPreview> {
     }
 
     widget.actions?.forEach(actions.add);
-
-    assert(() {
-      if (actions.isNotEmpty && widget.canDebug) {
-        actions.add(
-          Switch(
-            activeColor: Colors.red,
-            value: pw.Document.debug,
-            onChanged: (bool value) {
-              setState(() {
-                pw.Document.debug = value;
-              });
-              previewWidget.currentState?.raster();
-            },
-          ),
-        );
-      }
-
-      return true;
-    }());
 
     return PdfPreviewController(
       data: previewData,

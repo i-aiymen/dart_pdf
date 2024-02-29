@@ -101,17 +101,12 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter PDF Demo'),
-      ),
       body: PdfPreview(
         maxPageWidth: 700,
         build: (format) => generateResume(
           format,
         ),
         actions: actions,
-        onPrinted: _showPrintedToast,
-        onShared: _showSharedToast,
       ),
     );
   }
