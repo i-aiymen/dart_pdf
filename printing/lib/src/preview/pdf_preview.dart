@@ -132,6 +132,7 @@ class PdfPreview extends StatefulWidget {
   static const _defaultPageFormats = <String, PdfPageFormat>{
     'A4': PdfPageFormat.a4,
     'Letter': PdfPageFormat.letter,
+    'A3': PdfPageFormat.a3,
   };
 
   /// Called when a pdf document is needed

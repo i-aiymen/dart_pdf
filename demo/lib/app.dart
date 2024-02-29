@@ -19,7 +19,6 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:open_file/open_file.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -80,9 +79,10 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   ) async {
     final bytes = await build(pageFormat);
 
-    final appDocDir = await getApplicationDocumentsDirectory();
-    final appDocPath = appDocDir.path;
-    final file = File('$appDocPath/document.pdf');
+    // final appDocDir = await getApplicationDocumentsDirectory();
+    // final appDocPath = appDocDir.path;
+    // print(appDocPath);
+    final file = File('C:\\Users\\ayimen.TOAGROUP\\Documents\\document1.pdf');
     print('Save as file ${file.path} ...');
     await file.writeAsBytes(bytes);
     await OpenFile.open(file.path);
