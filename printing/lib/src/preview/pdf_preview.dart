@@ -352,19 +352,19 @@ class PdfPreviewState extends State<PdfPreview> {
       ));
     }
 
-    if (widget.useActions && widget.allowSharing && info?.canShare == true) {
-      actions.add(PdfShareAction(
-        filename: widget.pdfFileName,
-        onShared:
-            widget.onPrinted == null ? null : () => widget.onPrinted!(context),
-      ));
-    }
+    // if (widget.useActions && widget.allowSharing && info?.canShare == true) {
+    //   actions.add(PdfShareAction(
+    //     filename: widget.pdfFileName,
+    //     onShared:
+    //         widget.onPrinted == null ? null : () => widget.onPrinted!(context),
+    //   ));
+    // }
 
-    if (widget.useActions && widget.canChangePageFormat) {
-      actions.add(PdfPageFormatAction(
-        pageFormats: widget.pageFormats,
-      ));
-    }
+    // if (widget.useActions && widget.canChangePageFormat) {
+    //   actions.add(PdfPageFormatAction(
+    //     pageFormats: widget.pageFormats,
+    //   ));
+    // }
 
     if (widget.useActions && widget.canChangeOrientation) {
       // ignore: prefer_const_constructors

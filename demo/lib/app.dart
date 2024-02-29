@@ -35,41 +35,14 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
-  PrintingInfo? printingInfo;
-
   @override
   void initState() {
     super.initState();
-    _init();
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-  }
-
-  Future<void> _init() async {
-    final info = await Printing.info();
-
-    setState(() {
-      printingInfo = info;
-    });
-  }
-
-  void _showPrintedToast(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Document printed successfully'),
-      ),
-    );
-  }
-
-  void _showSharedToast(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Document shared successfully'),
-      ),
-    );
   }
 
   Future<void> _saveAsFile(
@@ -104,7 +77,7 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
       body: PdfPreview(
         maxPageWidth: 700,
         build: (format) => generateResume(
-          format,
+          PdfPageFormat.a3,
         ),
         actions: actions,
       ),
